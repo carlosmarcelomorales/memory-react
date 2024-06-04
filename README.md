@@ -1,64 +1,70 @@
-# Objectives
-This technical test is designed to show:
-* Your skills with React and its ecosystem.
-* Ability to write tests.
-* Good eye for responsive design and good use of tools/frameworks available.
-* Knowledge of REST API access for collecting data.
-* Clean coding practices.
- 
-# Test starts here
-Create a single page application for publishing an online “Memory” game. 
+# Getting Started with Create React App
 
-Memory is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-* Wikipedia: https://en.wikipedia.org/wiki/Concentration_(card_game)
-* Video example: https://www.youtube.com/watch?v=8HjfrhV7xHA
+## Available Scripts
 
-Please, take this video as an example, scoring system and UX has been simplified in our test.
+In the project directory, you can run:
 
-## Requirements: 
-Use React + any other library or extension you might need.
+### `npm start`
 
-Images for this memory game will be collected using GitHub API.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Page must be responsive as shown in the attached wireframe.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
- 
-## Game initialization:
- 
-1. Connect to Github API and fetch top 25 contributors of React repository.
+### `npm test`
 
-* React repository: https://github.com/facebook/react
-* API endpoint: https://api.github.com/repos/facebook/react/contributors?
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-2. Pick randomly 6 contributors and use their avatars.
-3. Avatars are duplicated and shuffled.
-4. Display a button to start the game.
- 
-## Gameplay:
-1. Show 12 boxes as explained on the wireframe. Avatars remain hidden. 
-2. The player has 60 seconds to find all pairs by selecting (clicking) 2 cards. 
-3. Time is counting down, in real time, while the user is playing.
-4. The player gets 100 points every time they find a pair. 
- 
-## Game ends:
-1. Game finishes when all pairs are found or time is over.
-2. Display "New Game" button to play again and start with a clean state. (back to game initialization).
+### `npm run build`
 
-## Other considerations:
-Please provide a short summary detailing anything you think is relevant, for example:
-* Installation steps.
-* How to run your code / tests.
-* Where to find your code.
-* Was it your first time writing a unit test, using a particular framework, etc?
-* What would you have done differently if you had had more time.
-* Etc.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Code submission:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- In a **private repository in Github**. This is the preferred option.
-- Others like GitLab or Bitbucket are also fine.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Please, contact us to know who to invite to the repository.
+### `npm run eject`
 
-Having full commit history is optional but would be considered as a plus.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
