@@ -1,13 +1,13 @@
 import { useContributors } from "./hooks/useContributors";
+import "./App.css";
+import { Board } from "./components/Board/Board";
 
 function App() {
-  const { shuffledContributors } = useContributors();
+  const { shuffledContributors: contributors } = useContributors();
 
   return (
     <div className="App">
-      {shuffledContributors.map((item) => (
-        <p>{item}</p>
-      ))}
+      <Board contributors={contributors}></Board>
     </div>
   );
 }
