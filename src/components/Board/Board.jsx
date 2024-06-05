@@ -1,4 +1,4 @@
-import "./Board.css";
+import "./Board.scss";
 import { Card } from "../Card/Card";
 
 function Board({ contributors }) {

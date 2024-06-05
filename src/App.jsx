@@ -1,5 +1,5 @@
 import { useContributors } from "./hooks/useContributors";
-import "./App.css";
+import "./App.scss";
 import { Board } from "./components/Board/Board";
 
 function App() {
