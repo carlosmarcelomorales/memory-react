@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
 import { useContributors } from "./hooks/useContributors";
 
 function App() {
-  const { data } = useContributors();
+  const { shuffledContributors } = useContributors();
 
   return (
     <div className="App">
-      {data.map((item) => (
-        <p>{item.id}</p>
+      {shuffledContributors.map((item) => (
+        <p>{item}</p>
       ))}
     </div>
   );
