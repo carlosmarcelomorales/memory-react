@@ -7,7 +7,11 @@ function App() {
 
   return (
     <div className="App">
-      <Board contributors={contributors}></Board>
+      {contributors.length > 0 ? (
+        <Board contributors={contributors} />
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }

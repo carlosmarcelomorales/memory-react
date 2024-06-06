@@ -11,7 +11,12 @@ function useContributors() {
           "https://api.github.com/repos/facebook/react/contributors?per_page=25",
         )
           .then((res) => res.json())
-          .then((data) => data.map((item) => item.avatar_url))
+          .then((data) =>
+            data.map((item) => ({
+              id: Math.floor(Math.random() * 10000),
+              avatar: item.avatar_url,
+            })),
+          )
           .then((data) => setContributors(data));
       } catch (error) {
         console.log("Error fetching contributors: ", error);
@@ -26,7 +31,6 @@ function useContributors() {
       const shuffledContributors = shuffleContributors(
         duplicateContributors(getRandomContributors(contributors)),
       );
-      console.log(shuffledContributors);
       setShuffledContributors(shuffledContributors);
     }
   }, [contributors]);
