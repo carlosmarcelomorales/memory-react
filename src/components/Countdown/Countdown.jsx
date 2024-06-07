@@ -22,7 +22,7 @@ function Countdown({ time, onTimeUp }) {
       });
     }, 1000);
     return () => clearInterval(timerInterval);
-  }, []);
+  }, [onTimeUp]);
 
   return <div>Time left: {timeLeft}</div>;
 }

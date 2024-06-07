@@ -9,7 +9,7 @@ Board.propTypes = {
 };
 
 function Board({ contributors, onMatch }) {
-  const [cards, setCards] = useState(contributors);
+  const [cards] = useState(contributors);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [comparingCards, setComparingCards] = useState(false);

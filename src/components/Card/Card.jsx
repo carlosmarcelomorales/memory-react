@@ -17,7 +17,7 @@ function Card({ contributor, onClick, flipped }) {
       <div className="card-inner">
         <div className="card-front"></div>
         <div className="card-back">
-          <img src={contributor.avatar} />
+          <img src={contributor.avatar} alt={contributor.avatar} />
         </div>
       </div>
     </div>

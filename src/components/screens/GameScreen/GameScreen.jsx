@@ -4,9 +4,13 @@ import "./GameScreen.scss";
 import { Fragment } from "react";
 import PropTypes from "prop-types";
 
-// GameScreen.propTypes = {
-//     contributors: PropTypes.arrayOf(PropTypes.object).isRequired,
-// }
+GameScreen.propTypes = {
+  contributors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  increaseScore: PropTypes.func.isRequired,
+  onTimeUp: PropTypes.func.isRequired,
+  totalTime: PropTypes.number,
+  score: PropTypes.number,
+};
 
 function GameScreen({
   contributors,
