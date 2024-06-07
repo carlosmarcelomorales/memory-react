@@ -3,17 +3,16 @@ import "./Card.scss";
 import PropTypes from "prop-types";
 
 Card.propTypes = {
-  contributor: PropTypes.objectOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      avatar: PropTypes.string,
-    }),
-  ),
+  contributor: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    avatar: PropTypes.string.isRequired,
+  }).isRequired,
   onClick: PropTypes.func,
   flipped: PropTypes.bool,
 };
 
 function Card({ contributor, onClick, flipped }) {
+  console.log(contributor);
   return (
     <div className={`card ${flipped ? "flipped" : ""}`} onClick={onClick}>
       <div className="card-inner">
