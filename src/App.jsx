@@ -1,10 +1,9 @@
 import { useContributors } from "./hooks/useContributors";
 import "./App.scss";
-import { Board } from "./components/Board/Board";
-import { Countdown } from "./components/Countdown/Countdown";
-import { Fragment, useState } from "react";
-import { Menu } from "./components/Menu/Menu";
-import { DefeatScreen } from "./components/DefeatScreen/DefeatScreen";
+import { useState } from "react";
+import { Menu } from "./components/screens/Menu/Menu";
+import { DefeatScreen } from "./components/screens/DefeatScreen/DefeatScreen";
+import { GameScreen } from "./components/screens/GameScreen/GameScreen";
 
 const GAME_STATES = {
   INITIAL: "initial",
@@ -38,21 +37,19 @@ function App() {
   return (
     <div className="App">
       {gameState === GAME_STATES.INITIAL && <Menu startGame={startGame} />}
-
       {gameState === GAME_STATES.PLAYING && contributors.length > 0 && (
-        <Fragment>
-          <header>Github Memory</header>
-          <div className="game-container">
-            <Board contributors={contributors} onMatch={increaseScore} />
-            <div className="info-bar">
-              <Countdown time={totalTime} onTimeUp={onTimeUp} />
-              <div className="score">Score: {score}</div>
-            </div>
-          </div>
-        </Fragment>
+        <GameScreen
+          contributors={contributors}
+          onTimeUp={onTimeUp}
+          increaseScore={increaseScore}
+          totalTime={totalTime}
+          score={score}
+        />
       )}
-
       {gameState === GAME_STATES.DEFEAT && <DefeatScreen />}
+      {gameState === GAME_STATES.PLAYING && contributors.length === 0 && (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }

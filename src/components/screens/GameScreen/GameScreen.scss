@@ -1,0 +1,32 @@
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 450px;
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .info-bar {
+    flex-direction: column;
+    align-items: baseline;
+    font-size: 16px;
+  }
+
+  .info-bar .timer,
+  .info-bar .score {
+    margin-bottom: 10px;
+  }
+
+  .score {
+    margin-left: 40px;
+  }
+}
