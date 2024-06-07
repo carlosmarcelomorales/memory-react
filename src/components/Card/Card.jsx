@@ -12,7 +12,6 @@ Card.propTypes = {
 };
 
 function Card({ contributor, onClick, flipped }) {
-  console.log(contributor);
   return (
     <div className={`card ${flipped ? "flipped" : ""}`} onClick={onClick}>
       <div className="card-inner">
