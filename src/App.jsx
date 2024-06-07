@@ -28,10 +28,12 @@ function App() {
   };
 
   const onTimeUp = () => {
-    setGameState(GAME_STATES.DEFEAT);
     setTimeout(() => {
-      setGameState(GAME_STATES.INITIAL);
-    }, 3000);
+      setGameState(GAME_STATES.DEFEAT);
+      setTimeout(() => {
+        setGameState(GAME_STATES.INITIAL);
+      }, 3000);
+    }, 0);
   };
 
   return (
