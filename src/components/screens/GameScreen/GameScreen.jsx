@@ -6,24 +6,18 @@ import PropTypes from "prop-types";
 
 GameScreen.propTypes = {
   contributors: PropTypes.arrayOf(PropTypes.object).isRequired,
-  increaseScore: PropTypes.func.isRequired,
+  onMatch: PropTypes.func.isRequired,
   onTimeUp: PropTypes.func.isRequired,
   totalTime: PropTypes.number,
   score: PropTypes.number,
 };
 
-function GameScreen({
-  contributors,
-  increaseScore,
-  onTimeUp,
-  totalTime,
-  score,
-}) {
+function GameScreen({ contributors, onMatch, onTimeUp, totalTime, score }) {
   return (
     <Fragment>
       <header>Github Memory</header>
       <div className="game-container">
-        <Board contributors={contributors} onMatch={increaseScore} />
+        <Board contributors={contributors} onMatch={onMatch} />
         <div className="info-bar">
           <Countdown time={totalTime} onTimeUp={onTimeUp} />
           <div className="score">Score: {score}</div>

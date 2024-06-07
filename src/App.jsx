@@ -4,11 +4,13 @@ import { useState } from "react";
 import { Menu } from "./components/screens/Menu/Menu";
 import { DefeatScreen } from "./components/screens/DefeatScreen/DefeatScreen";
 import { GameScreen } from "./components/screens/GameScreen/GameScreen";
+import { VictoryScreen } from "./components/screens/VictoryScreen/VictoryScreen";
 
 const GAME_STATES = {
   INITIAL: "initial",
   PLAYING: "playing",
   DEFEAT: "defeat",
+  VICTORY: "victory",
 };
 
 function App() {
@@ -17,9 +19,17 @@ function App() {
   const { shuffledContributors: contributors } = useContributors();
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState(GAME_STATES.INITIAL);
+  const [totalMatches, setTotalMatches] = useState(0);
 
-  const increaseScore = () => {
+  const onMatch = () => {
     setScore(score + amountScorePerMatch);
+    setTotalMatches((prevMatches) => {
+      const newMatches = prevMatches + 1;
+      if (newMatches === contributors.length / 2) {
+        setGameState(GAME_STATES.VICTORY);
+      }
+      return newMatches;
+    });
   };
 
   const startGame = () => {
@@ -43,12 +53,13 @@ function App() {
         <GameScreen
           contributors={contributors}
           onTimeUp={onTimeUp}
-          increaseScore={increaseScore}
+          onMatch={onMatch}
           totalTime={totalTime}
           score={score}
         />
       )}
       {gameState === GAME_STATES.DEFEAT && <DefeatScreen />}
+      {gameState === GAME_STATES.VICTORY && <VictoryScreen />}
       {gameState === GAME_STATES.PLAYING && contributors.length === 0 && (
         <p>Loading...</p>
       )}
