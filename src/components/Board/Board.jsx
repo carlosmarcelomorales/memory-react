@@ -5,9 +5,10 @@ import PropTypes from "prop-types";
 
 Board.propTypes = {
   contributors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onMatch: PropTypes.func.isRequired,
 };
 
-function Board({ contributors }) {
+function Board({ contributors, onMatch }) {
   const [cards, setCards] = useState(contributors);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
@@ -32,6 +33,7 @@ function Board({ contributors }) {
         setMatchedCards([...matchedCards, cards[indexFirstCard].avatar]);
         setFlippedCards([]);
         setComparingCards(false);
+        onMatch();
       } else {
         setTimeout(() => {
           setFlippedCards([]);
