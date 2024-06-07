@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 
 Countdown.propTypes = {
   time: PropTypes.number.isRequired,
+  onTimeUp: PropTypes.func.isRequired,
 };
 
-function Countdown({ time }) {
+function Countdown({ time, onTimeUp }) {
   const [timeLeft, setTimeLeft] = useState(time);
 
   useEffect(() => {
@@ -13,6 +14,7 @@ function Countdown({ time }) {
       setTimeLeft((prevTime) => {
         if (prevTime === 0) {
           clearInterval(timerInterval);
+          onTimeUp();
           return 0;
         } else {
           return prevTime - 1;
