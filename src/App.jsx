@@ -21,8 +21,10 @@ function App() {
           <header>Github Memory</header>
           <div className="game-container">
             <Board contributors={contributors} onMatch={increaseScore} />
-            <Countdown time={totalTime} />
-            <div>Score: {score}</div>
+            <div className="info-bar">
+              <Countdown time={totalTime} />
+              <div className="score">Score: {score}</div>
+            </div>
           </div>
         </Fragment>
       ) : (
