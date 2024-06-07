@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 function useContributors() {
+  const numberContributors = 25;
   const [contributors, setContributors] = useState([]);
   const [shuffledContributors, setShuffledContributors] = useState([]);
 
@@ -8,7 +9,7 @@ function useContributors() {
     const fetchContributors = async () => {
       try {
         await fetch(
-          "https://api.github.com/repos/facebook/react/contributors?per_page=25",
+          `https://api.github.com/repos/facebook/react/contributors?per_page=${numberContributors}`,
         )
           .then((res) => res.json())
           .then((data) =>
