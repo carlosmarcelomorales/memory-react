@@ -1,5 +1,17 @@
 import React from "react";
 import "./Card.scss";
+import PropTypes from "prop-types";
+
+Card.propTypes = {
+  contributor: PropTypes.objectOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      avatar: PropTypes.string,
+    }),
+  ),
+  onClick: PropTypes.func,
+  flipped: PropTypes.bool,
+};
 
 function Card({ contributor, onClick, flipped }) {
   return (

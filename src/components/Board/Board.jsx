@@ -1,6 +1,11 @@
 import "./Board.scss";
 import { Card } from "../Card/Card";
 import { useState } from "react";
+import PropTypes from "prop-types";
+
+Board.propTypes = {
+  contributors: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 function Board({ contributors }) {
   const [cards, setCards] = useState(contributors);
