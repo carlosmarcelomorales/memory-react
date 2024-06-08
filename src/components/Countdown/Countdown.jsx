@@ -13,8 +13,8 @@ function Countdown({ time, onTimeUp }) {
     const timerInterval = setInterval(() => {
       setTimeLeft((prevTime) => {
         if (prevTime === 0) {
-          clearInterval(timerInterval);
           onTimeUp();
+          clearInterval(timerInterval);
           return 0;
         } else {
           return prevTime - 1;
@@ -22,7 +22,7 @@ function Countdown({ time, onTimeUp }) {
       });
     }, 1000);
     return () => clearInterval(timerInterval);
-  }, [onTimeUp]);
+  }, [onTimeUp, timeLeft]);
 
   return <div>Time left: {timeLeft}</div>;
 }

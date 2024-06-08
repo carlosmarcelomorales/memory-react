@@ -1,10 +1,10 @@
-import { useContributors } from "./hooks/useContributors";
+import { useContributors } from "../hooks/useContributors";
 import "./App.scss";
 import { useState } from "react";
-import { Menu } from "./components/screens/Menu/Menu";
-import { DefeatScreen } from "./components/screens/DefeatScreen/DefeatScreen";
-import { GameScreen } from "./components/screens/GameScreen/GameScreen";
-import { VictoryScreen } from "./components/screens/VictoryScreen/VictoryScreen";
+import { Menu } from "../components/screens/Menu/Menu";
+import { DefeatScreen } from "../components/screens/DefeatScreen/DefeatScreen";
+import { GameScreen } from "../components/screens/GameScreen/GameScreen";
+import { VictoryScreen } from "../components/screens/VictoryScreen/VictoryScreen";
 
 const GAME_STATES = {
   INITIAL: "initial",
@@ -27,6 +27,9 @@ function App() {
       const newMatches = prevMatches + 1;
       if (newMatches === contributors.length / 2) {
         setGameState(GAME_STATES.VICTORY);
+        setTimeout(() => {
+          setGameState(GAME_STATES.INITIAL);
+        }, 3000);
       }
       return newMatches;
     });
@@ -38,12 +41,10 @@ function App() {
   };
 
   const onTimeUp = () => {
+    setGameState(GAME_STATES.DEFEAT);
     setTimeout(() => {
-      setGameState(GAME_STATES.DEFEAT);
-      setTimeout(() => {
-        setGameState(GAME_STATES.INITIAL);
-      }, 3000);
-    }, 0);
+      setGameState(GAME_STATES.INITIAL);
+    }, 3000);
   };
 
   return (
