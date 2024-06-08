@@ -21,7 +21,6 @@ beforeEach(() => {
 });
 
 const clickStartGame = () => fireEvent.click(screen.getByText(/Start Game/i));
-
 const renderApp = () => render(<App />);
 
 test("render start screen", () => {
