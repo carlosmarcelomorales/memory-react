@@ -9,9 +9,9 @@ const contributorsMock = [
   { id: 1, avatar: "https://example.com/avatar1.png" },
   { id: 2, avatar: "https://example.com/avatar2.png" },
   { id: 3, avatar: "https://example.com/avatar3.png" },
-  { id: 4, avatar: "https://example.com/avatar4.png" },
-  { id: 5, avatar: "https://example.com/avatar5.png" },
-  { id: 6, avatar: "https://example.com/avatar6.png" },
+  { id: 4, avatar: "https://example.com/avatar1.png" },
+  { id: 5, avatar: "https://example.com/avatar2.png" },
+  { id: 6, avatar: "https://example.com/avatar3.png" },
 ];
 
 beforeEach(() => {
@@ -44,4 +44,24 @@ test("show defeat screen when time is up", () => {
   });
   expect(screen.getByText(/You Lost/i)).toBeInTheDocument();
   jest.useRealTimers();
+});
+
+test("shows victory screen when all matches are found", () => {
+  renderApp();
+  fireEvent.click(screen.getByText(/Start Game/i));
+
+  const cards = screen.getAllByRole("img");
+
+  const pairs = [
+    [0, 3],
+    [1, 4],
+    [2, 5],
+  ];
+
+  pairs.forEach(([first, second]) => {
+    fireEvent.click(cards[first]);
+    fireEvent.click(cards[second]);
+  });
+
+  expect(screen.getByText(/Congratulations!/i)).toBeInTheDocument();
 });
