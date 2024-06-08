@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function useContributors() {
+function useContributors(resetTrigger) {
   const numberContributors = 25;
   const [contributors, setContributors] = useState([]);
   const [shuffledContributors, setShuffledContributors] = useState([]);
@@ -25,7 +25,7 @@ function useContributors() {
     };
 
     fetchContributors();
-  }, []);
+  }, [resetTrigger]);
 
   useEffect(() => {
     if (contributors.length > 0) {

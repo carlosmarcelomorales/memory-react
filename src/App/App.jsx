@@ -16,7 +16,8 @@ const GAME_STATES = {
 function App() {
   const totalTime = 60;
   const amountScorePerMatch = 100;
-  const { shuffledContributors: contributors } = useContributors();
+  const [resetTrigger, setResetTrigger] = useState(0);
+  const { shuffledContributors: contributors } = useContributors(resetTrigger);
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState(GAME_STATES.INITIAL);
   const [totalMatches, setTotalMatches] = useState(0);
@@ -29,6 +30,9 @@ function App() {
         setGameState(GAME_STATES.VICTORY);
         setTimeout(() => {
           setGameState(GAME_STATES.INITIAL);
+          setScore(0);
+          setTotalMatches(0);
+          setResetTrigger(resetTrigger + 1);
         }, 3000);
       }
       return newMatches;
@@ -37,13 +41,16 @@ function App() {
 
   const startGame = () => {
     setScore(0);
+    setTotalMatches(0);
     setGameState(GAME_STATES.PLAYING);
+    setResetTrigger(resetTrigger + 1);
   };
 
   const onTimeUp = () => {
     setGameState(GAME_STATES.DEFEAT);
     setTimeout(() => {
       setGameState(GAME_STATES.INITIAL);
+      setResetTrigger(resetTrigger + 1);
     }, 3000);
   };
 
