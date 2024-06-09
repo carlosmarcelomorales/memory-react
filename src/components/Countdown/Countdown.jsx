@@ -12,8 +12,7 @@ function Countdown({ time, onTimeUp }) {
   useEffect(() => {
     const timerInterval = setInterval(() => {
       setTimeLeft((prevTime) => {
-        if (prevTime === 0) {
-          onTimeUp();
+        if (prevTime <= 1) {
           clearInterval(timerInterval);
           return 0;
         } else {
@@ -21,8 +20,15 @@ function Countdown({ time, onTimeUp }) {
         }
       });
     }, 1000);
+
     return () => clearInterval(timerInterval);
-  }, [onTimeUp, timeLeft]);
+  }, []);
+
+  useEffect(() => {
+    if (timeLeft === 0) {
+      onTimeUp();
+    }
+  }, [timeLeft, onTimeUp]);
 
   return <div>Time left: {timeLeft}</div>;
 }

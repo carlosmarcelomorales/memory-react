@@ -14,7 +14,7 @@ const GAME_STATES = {
 };
 
 function App() {
-  const totalTime = 60;
+  const totalTime = 3;
   const amountScorePerMatch = 100;
   const [resetTrigger, setResetTrigger] = useState(0);
   const { shuffledContributors: contributors } = useContributors(resetTrigger);
