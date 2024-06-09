@@ -48,10 +48,10 @@ function App() {
 
   const onTimeUp = () => {
     setGameState(GAME_STATES.DEFEAT);
-    setTimeout(() => {
-      setGameState(GAME_STATES.INITIAL);
-      setResetTrigger(resetTrigger + 1);
-    }, 3000);
+  };
+
+  const onCloseModal = () => {
+    setGameState(GAME_STATES.INITIAL);
   };
 
   return (
@@ -66,7 +66,13 @@ function App() {
           score={score}
         />
       )}
-      {gameState === GAME_STATES.DEFEAT && <DefeatScreen />}
+      {gameState === GAME_STATES.DEFEAT && (
+        <DefeatScreen
+          onRestart={startGame}
+          onCloseModal={onCloseModal}
+          score={score}
+        />
+      )}
       {gameState === GAME_STATES.VICTORY && <VictoryScreen />}
       {gameState === GAME_STATES.PLAYING && contributors.length === 0 && (
         <p>Loading...</p>
