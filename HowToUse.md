@@ -4,7 +4,7 @@
 
 First of all, let's clone the repository:
 
-> https://github.com/carlosmarcelomorales/memory-react.git
+> git clone https://github.com/carlosmarcelomorales/memory-react.git
 
 > cd memory-react
 
@@ -56,6 +56,7 @@ src/
 │  │  ├─ Menu/
 │  │  ├─ DefeatScreen/
 │  ├─ Countdown/
+|  ├─ Modal/
 │  ├─ Card/
 │  ├─ Board/
 ├─ hooks/
